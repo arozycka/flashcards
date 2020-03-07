@@ -5,7 +5,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import './App.scss';
+import './FiszkiApp.scss';
 import Main from "./components/Main";
 import Angielski from "./components/Angielski"
 import Niemiecki from "./components/Niemiecki"
@@ -16,6 +16,8 @@ import NiemPol from "./components/Niem-Pol"
 import store from "./redux/store";
 import Zestaw from "./components/Zestaw";
 import ZestawObcy from "./components/ZestawObcy";
+import SetGerman from "./components/SetGerman";
+import ZestawObcyNiemiecki from "./components/ZestawObcyNiemiecki";
 
 function FiszkiApp() {
     return (
@@ -23,8 +25,8 @@ function FiszkiApp() {
             <Router>
                 <div>
                     <Switch>
-                        <Route path="/jniemiecki/niempol/zestaw/:number" component={ZestawObcy}></Route>
-                        <Route path="/jniemiecki/polniem/zestaw/:number" component={Zestaw}></Route>
+                        <Route path="/jniemiecki/niempol/zestaw/:number" component={ZestawObcyNiemiecki}></Route>
+                        <Route path="/jniemiecki/polniem/zestaw/:number" component={SetGerman}></Route>
                         <Route path="/jangielski/angpol/zestaw/:number" component={ZestawObcy}></Route>
                         <Route path="/jangielski/polang/zestaw/:number" component={Zestaw}></Route>
                         <Route path="/jniemiecki/niempol" component={NiemPol}></Route>

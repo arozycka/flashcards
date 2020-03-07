@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleInput from "./ArticleInput";
-import UsersList from "../../Article/UsersList";
+import UsersList from "./UsersList";
 import ArticlesList from "./ArticlesList";
 
 const Articles = ({ onAdd, users, articles }) => (

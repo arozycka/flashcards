@@ -4,7 +4,7 @@ import Fiszka from "./Fiszka"
 import Counter from "./Counter";
 import {wordsEnglish} from "../wordsEnglish";
 
-class ZestawObcy extends React.Component{
+class ZestawObcyNiemiecki extends React.Component{
 
     constructor (props){
         super (props);
@@ -68,4 +68,4 @@ class ZestawObcy extends React.Component{
     }
 }
 
-export default ZestawObcy;
+export default ZestawObcyNiemiecki;

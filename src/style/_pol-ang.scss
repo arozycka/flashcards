@@ -1,0 +1,54 @@
+@import "variables";
+.setContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: $mainCounterFont;
+}
+
+.setButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.setfooter{
+  background-color: $wiredColor;
+  width: 800px;
+  font-family: $mainCounterFont;
+  padding: 50px;
+  text-align: center;
+  color:black;
+  font-size: 35px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sets{
+  font-size: 30px;
+  font-family: $mainCounterFont;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+wired-toggle{
+  margin-left: 15px;
+}
+
+.setWiredCard{
+
+    margin:10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: $wiredColor;
+
+}

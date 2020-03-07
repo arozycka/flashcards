@@ -1,5 +1,5 @@
 import React from "react";
-
+import { WiredCard } from "wired-card"
 
 
 class Fiszka extends React.Component{
@@ -11,9 +11,9 @@ class Fiszka extends React.Component{
         return(
             <div>
                 <div>
-                   <p>Słowo</p>
-                    <p>{this.props.word}</p>
-
+                    <wired-card class="mainWiredCard">
+                        <p>{this.props.word}</p>
+                    </wired-card>
                 </div>
             </div>
         )

@@ -2,9 +2,10 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import Fiszka from "./Fiszka"
 import Counter from "./Counter";
+import {WiredButton} from "wired-elements";
 import {wordsEnglish} from "../wordsEnglish";
-
-class ZestawObcy extends React.Component{
+import { WiredCombo } from "wired-combo"
+class SetGerman extends React.Component{
 
     constructor (props){
         super (props);
@@ -38,9 +39,9 @@ class ZestawObcy extends React.Component{
         const word = this.state.wordsEnglish[number - 1][this.state.index];
         let wordToDisplay = undefined;
         if (this.state.showAnswer === true) {
-            wordToDisplay = word.polish;
-        } else {
             wordToDisplay = word.english;
+        } else {
+            wordToDisplay = word.polish;
         }
         return(
             <div className="setContainer">
@@ -48,19 +49,24 @@ class ZestawObcy extends React.Component{
                 <div className="componentFiszka">
                     <wired-button onClick={this.onHandleClickNextWord}>Poprzednie</wired-button>
                     <Fiszka word={wordToDisplay}/>
-                    <Fiszka/>
                     <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
                     {this.state.index===9 && <wired-button>Następny zestaw</wired-button>}
                 </div>
-                <div className="buttonsKnow">
-                <wired-button onClick={this.showAnswer}>Wiedziałem</wired-button>
-                <wired-button onClick={this.showAnswer}>Nie wiedziałem</wired-button>
+                <wired-combo id="combo" selected="der">
+                    <wired-item value="der">der</wired-item>
+                    <wired-item value="die">die</wired-item>
+                    <wired-item value="das">das</wired-item>
+                </wired-combo>
+                <br></br>
+                <wired-input/>
+                <div>
+                    <wired-button>ö</wired-button>
+                    <wired-button>ä</wired-button>
+                    <wired-button>ß</wired-button>
+                    <wired-button>ü</wired-button>
                 </div>
-                <div className="counter">
-                    <h1>Odpowiedzi:</h1>
-                    <h2>Wiedziałem:0</h2>
-                    <h2>Nie wiedziałem:0</h2>
-                </div>
+                <wired-button id="setGermanButton" onClick={this.showAnswer}>Sprawdź</wired-button>
+                <Counter/>
                 <wired-button><NavLink  to="/">Wróć do strony głównej</NavLink></wired-button>
             </div>
         )
@@ -68,4 +74,4 @@ class ZestawObcy extends React.Component{
     }
 }
 
-export default ZestawObcy;
+export default SetGerman;

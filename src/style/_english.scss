@@ -1,0 +1,31 @@
+@import "variables";
+
+wired-button{
+  color:black;
+  background-color: $wiredColor;
+  font-family: $mainCounterFont;
+  margin:50px;
+  font-size: 20px;
+  height: 45px;
+}
+
+.checklanguage{
+  font-family: $mainCounterFont;
+}
+
+.englishContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.englishDiv{
+  display: flex;
+  flex-direction: row;
+}
+
+#englishButton{
+  margin-top: 50px;
+}
