@@ -26,12 +26,18 @@ class ZestawObcy extends React.Component{
         });
     };
 
-    showAnswer = () => {
+    onHandleClickPreviousWord = () => {
+        if (this.state.index  === 0) {
+            return;
+        }
         this.setState({
             ...this.state,
-            showAnswer: true,
+            index: this.state.index - 1,
+            showAnswer: false,
         });
     };
+
+
 
     render() {
         const {match:{params:{number}}}=this.props;
@@ -46,22 +52,26 @@ class ZestawObcy extends React.Component{
             <div className="setContainer">
                 <h1>Zestaw {number}</h1>
                 <div className="componentFiszka">
-                    <wired-button onClick={this.onHandleClickNextWord}>Poprzednie</wired-button>
+                    <wired-button onClick={this.onHandleClickPreviousWord}>Poprzednie</wired-button>
                     <Fiszka word={wordToDisplay}/>
                     <Fiszka/>
                     <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
-                    {this.state.index===9 && <wired-button>Następny zestaw</wired-button>}
+                    {this.state.index===9 && <wired-button><NavLink to="/jangielski/angpol/zestawang"> Następny zestaw </NavLink></wired-button>}
                 </div>
                 <div className="buttonsKnow">
-                <wired-button onClick={this.showAnswer}>Wiedziałem</wired-button>
-                <wired-button onClick={this.showAnswer}>Nie wiedziałem</wired-button>
+                <wired-button >Wiedziałem</wired-button>
+                <wired-button >Nie wiedziałem</wired-button>
                 </div>
                 <div className="counter">
                     <h1>Odpowiedzi:</h1>
                     <h2>Wiedziałem:0</h2>
                     <h2>Nie wiedziałem:0</h2>
                 </div>
-                <wired-button><NavLink  to="/">Wróć do strony głównej</NavLink></wired-button>
+                <div className="buttonsNav">
+                    <wired-button><NavLink to="/jangielski/angpol/zestawang"> Wróć do zestawów </NavLink>
+                    </wired-button>
+                    <wired-button><NavLink to="/"> Wróć do strony głównej </NavLink></wired-button>
+                </div>
             </div>
         )
 

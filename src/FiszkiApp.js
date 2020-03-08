@@ -25,9 +25,9 @@ function FiszkiApp() {
             <Router>
                 <div>
                     <Switch>
-                        <Route path="/jniemiecki/niempol/zestaw/:number" component={ZestawObcyNiemiecki}></Route>
-                        <Route path="/jniemiecki/polniem/zestaw/:number" component={SetGerman}></Route>
-                        <Route path="/jangielski/angpol/zestaw/:number" component={ZestawObcy}></Route>
+                        <Route path="/jniemiecki/niempol/zestawniem/:number" component={ZestawObcyNiemiecki}></Route>
+                        <Route path="/jniemiecki/polniem/zestawpolniem/:number" component={SetGerman}></Route>
+                        <Route path="/jangielski/angpol/zestawang/:number" component={ZestawObcy}></Route>
                         <Route path="/jangielski/polang/zestaw/:number" component={Zestaw}></Route>
                         <Route path="/jniemiecki/niempol" component={NiemPol}></Route>
                         <Route path="/jniemiecki/polniem" component={PolNiem}></Route>

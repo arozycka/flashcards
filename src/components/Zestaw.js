@@ -27,6 +27,17 @@ onHandleClickNextWord = () => {
     });
 };
 
+    onHandleClickPreviousWord = () => {
+        if (this.state.index  === 0) {
+            return;
+        }
+        this.setState({
+            ...this.state,
+            index: this.state.index - 1,
+            showAnswer: false,
+        });
+    };
+
 showAnswer = () => {
     this.setState({
         ...this.state,
@@ -47,15 +58,19 @@ render() {
         <div className="setContainer">
             <h1>Zestaw {number}</h1>
             <div className="componentFiszka">
-                <wired-button onClick={this.onHandleClickNextWord}>Poprzednie</wired-button>
+                <wired-button onClick={this.onHandleClickPreviousWord}>Poprzednie</wired-button>
                 <Fiszka word={wordToDisplay}/>
                 <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
-                {this.state.index===9 && <wired-button>Następny zestaw</wired-button>}
+                {this.state.index===9 && <wired-button><NavLink to="/jangielski/polang/zestaw"> Następny zestaw </NavLink></wired-button>}
             </div>
             <wired-input/>
             <wired-button onClick={this.showAnswer}>Sprawdź</wired-button>
             <Counter/>
-            <wired-button><NavLink  to="/">Wróć do strony głównej</NavLink></wired-button>
+            <div className="buttonsNav">
+                <wired-button><NavLink to="/jangielski/polang/zestaw"> Wróć do zestawów </NavLink>
+                </wired-button>
+                <wired-button><NavLink to="/"> Wróć do strony głównej </NavLink></wired-button>
+            </div>
         </div>
     )
 

@@ -3,26 +3,38 @@ import {NavLink} from "react-router-dom";
 import Fiszka from "./Fiszka"
 import Counter from "./Counter";
 import {WiredButton} from "wired-elements";
-import {wordsEnglish} from "../wordsEnglish";
+import wordsGerman from "../wordsGerman";
 import { WiredCombo } from "wired-combo"
 class SetGerman extends React.Component{
 
     constructor (props){
         super (props);
         this.state = {
-            wordsEnglish:wordsEnglish,
+            wordsGerman:wordsGerman,
             index: 0,
             showAnswer: false,
+            value:""
         }
     }
 
     onHandleClickNextWord = () => {
-        if (this.state.index + 1 === this.state.wordsEnglish[this.props.match.params.number - 1].length) {
+        if (this.state.index + 1 === this.state.wordsGerman[this.props.match.params.number - 1].length) {
             return;
         }
         this.setState({
             ...this.state,
             index: this.state.index + 1,
+            showAnswer: false,
+        });
+    };
+
+    onHandleClickPreviousWord = () => {
+        if (this.state.index  === 0) {
+            return;
+        }
+        this.setState({
+            ...this.state,
+            index: this.state.index - 1,
             showAnswer: false,
         });
     };
@@ -34,12 +46,38 @@ class SetGerman extends React.Component{
         });
     };
 
+    onHandleClickPutWord1 = (e) => {
+        this.setState({
+            ...this.state,
+            value:e.target.value +"ö"
+        });
+    };
+    onHandleClickPutWord2 = (e) => {
+        this.setState({
+            ...this.state,
+            value:e.target.value+"ä"
+        });
+    };
+    onHandleClickPutWord3 = (e) => {
+        this.setState({
+            ...this.state,
+            value:e.target.value+"ß"
+        });
+    };
+    onHandleClickPutWord4 = () => {
+        let inputVal = document.getElementById("myInput").value;
+        this.setState({
+            ...this.state,
+            value:inputVal+"ü"
+        });
+    };
+
     render() {
         const {match:{params:{number}}}=this.props;
-        const word = this.state.wordsEnglish[number - 1][this.state.index];
+        const word = this.state.wordsGerman[number - 1][this.state.index];
         let wordToDisplay = undefined;
         if (this.state.showAnswer === true) {
-            wordToDisplay = word.english;
+            wordToDisplay = word.german;
         } else {
             wordToDisplay = word.polish;
         }
@@ -47,27 +85,25 @@ class SetGerman extends React.Component{
             <div className="setContainer">
                 <h1>Zestaw {number}</h1>
                 <div className="componentFiszka">
-                    <wired-button onClick={this.onHandleClickNextWord}>Poprzednie</wired-button>
+                    <wired-button onClick={this.onHandleClickPreviousWord}>Poprzednie</wired-button>
                     <Fiszka word={wordToDisplay}/>
                     <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
-                    {this.state.index===9 && <wired-button>Następny zestaw</wired-button>}
+                    {this.state.index===9 && <wired-button><NavLink to="/jniemiecki/polniem/zestawpolniem"> Następny zestaw </NavLink></wired-button>}
                 </div>
-                <wired-combo id="combo" selected="der">
-                    <wired-item value="der">der</wired-item>
-                    <wired-item value="die">die</wired-item>
-                    <wired-item value="das">das</wired-item>
-                </wired-combo>
-                <br></br>
-                <wired-input/>
+                <wired-input type ="text" value={this.state.value} id="myInput"/>
                 <div>
-                    <wired-button>ö</wired-button>
-                    <wired-button>ä</wired-button>
-                    <wired-button>ß</wired-button>
-                    <wired-button>ü</wired-button>
+                    <wired-button onClick={this.onHandleClickPutWord1}>ö</wired-button>
+                    <wired-button onClick={this.onHandleClickPutWord2}>ä</wired-button>
+                    <wired-button onClick={this.onHandleClickPutWord3}>ß</wired-button>
+                    <wired-button onClick={this.onHandleClickPutWord4}>ü</wired-button>
                 </div>
                 <wired-button id="setGermanButton" onClick={this.showAnswer}>Sprawdź</wired-button>
                 <Counter/>
-                <wired-button><NavLink  to="/">Wróć do strony głównej</NavLink></wired-button>
+                <div className="buttonsNav">
+                    <wired-button><NavLink to="/jniemiecki/polniem/zestawpolniem"> Wróć do zestawów </NavLink>
+                    </wired-button>
+                    <wired-button><NavLink to="/"> Wróć do strony głównej </NavLink></wired-button>
+                </div>
             </div>
         )
 
