@@ -1,6 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import Fiszka from "./Fiszka"
+import FiszkaRotate from "./Fiszkarotate";
 import Counter from "./Counter";
 import wordsGerman from "../wordsGerman";
 
@@ -12,6 +13,8 @@ class ZestawObcyNiemiecki extends React.Component {
             wordsGerman: wordsGerman,
             index: 0,
             showAnswer: false,
+            know:0,
+            unknow:0,
         }
     }
 
@@ -37,6 +40,17 @@ class ZestawObcyNiemiecki extends React.Component {
         });
     };
 
+    onHandleClickKnow = ()=>{
+        this.setState({
+            know:this.state.know+1,
+        })
+    };
+    onHandleClickUnknow = ()=>{
+        this.setState({
+            unknow:this.state.unknow+1,
+        })
+    };
+
 
     render() {
         const {match: {params: {number}}} = this.props;
@@ -53,18 +67,18 @@ class ZestawObcyNiemiecki extends React.Component {
                 <div className="componentFiszka">
                     <wired-button onClick={this.onHandleClickPreviousWord}>Poprzednie</wired-button>
                     <Fiszka word={wordToDisplay}/>
-                    <Fiszka/>
+                    <FiszkaRotate/>
                     <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
-                    {this.state.index === 9 && <wired-button><NavLink to="/jniemiecki/niempol/zestawniem"> Następny zestaw </NavLink></wired-button>}
+                    {this.state.index === 9 && <wired-button class="nextSetButton"><NavLink to="/jniemiecki/niempol/zestawniem"> Następny zestaw </NavLink></wired-button>}
                 </div>
                 <div className="buttonsKnow">
-                    <wired-button>Wiedziałem</wired-button>
-                    <wired-button>Nie wiedziałem</wired-button>
+                    <wired-button onClick={this.onHandleClickKnow}>Wiedziałem</wired-button>
+                    <wired-button onClick={this.onHandleClickUnknow}>Nie wiedziałem</wired-button>
                 </div>
                 <div className="counter">
                     <h1>Odpowiedzi:</h1>
-                    <h2>Wiedziałem:0</h2>
-                    <h2>Nie wiedziałem:0</h2>
+                    <h2>Wiedziałem:{this.state.know}</h2>
+                    <h2>Nie wiedziałem:{this.state.unknow}</h2>
                 </div>
                 <div className="buttonsNav">
                     <wired-button><NavLink to="/jniemiecki/niempol/zestawniem"> Wróć do zestawów </NavLink>
