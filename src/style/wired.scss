@@ -1,0 +1,15 @@
+@import "variables";
+
+wired-button{
+  color:black;
+  background-color: $wiredColor;
+  font-family: $mainCounterFont;
+  margin:30px 70px 30px 30px;
+  font-size: 20px;
+  height: 45px;
+}
+
+wired-toggle{
+  margin-left: 15px;
+}
+

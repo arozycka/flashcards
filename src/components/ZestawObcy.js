@@ -8,6 +8,7 @@ import {wordsEnglish} from "../wordsEnglish";
 class ZestawObcy extends React.Component{
 
     constructor (props){
+        window.speechSynthesis.getVoices();
         super (props);
         this.state = {
             wordsEnglish:wordsEnglish,
@@ -39,15 +40,44 @@ class ZestawObcy extends React.Component{
             showAnswer: false,
         });
     };
-    onHandleClickKnow = ()=>{
-        this.setState({
-            know:this.state.know+1,
-        })
+    onHandleClickKnow =()=>{
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsEnglish[number - 1][this.state.index];
+        if (word.skip===true){
+            return;
+        }else{
+            word.skip=true;
+            this.setState({
+               know:this.state.know+1,
+            });
+        }
     };
+
     onHandleClickUnknow = ()=>{
-        this.setState({
-            unknow:this.state.unknow-1,
-        })
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsEnglish[number - 1][this.state.index];
+        if (word.skip===true){
+            return;
+        }else{
+            word.skip=true;
+            this.setState({
+                unknow:this.state.unknow+1,
+
+            })
+        }
+    };
+
+    speakEnglish=()=>{
+        const {match: {params: {number}}} = this.props;
+        const word = this.state.wordsEnglish[number - 1][this.state.index].english;
+        const voices = window.speechSynthesis.getVoices();
+        const utterThis = new SpeechSynthesisUtterance(word);
+        utterThis.voice = voices[1];
+        utterThis.pitch = 1;
+        utterThis.rate = 1;
+        window.speechSynthesis.speak(utterThis);
     };
 
 
@@ -55,19 +85,15 @@ class ZestawObcy extends React.Component{
     render() {
         const {match:{params:{number}}}=this.props;
         const word = this.state.wordsEnglish[number - 1][this.state.index];
-        let wordToDisplay = undefined;
-        if (this.state.showAnswer === true) {
-            wordToDisplay = word.polish;
-        } else {
-            wordToDisplay = word.english;
-        }
+        let wordToDisplayP = word.polish;
+        let wordToDisplay = word.english;
         return(
             <div className="setContainer">
                 <h1>Zestaw {number}</h1>
                 <div className="componentFiszka">
                     <wired-button onClick={this.onHandleClickPreviousWord}>Poprzednie</wired-button>
-                    <Fiszka word={wordToDisplay}/>
-                    <FiszkaRotate/>
+                    <Fiszka word={wordToDisplay} showSpeakerIcon={true} speakFn={this.speakEnglish}/>
+                    <FiszkaRotate word={wordToDisplayP}/>
                     <wired-button onClick={this.onHandleClickNextWord}>Następne</wired-button>
                     {this.state.index===9 && <wired-button class="nextSetButton"><NavLink to="/jangielski/angpol/zestawang"> Następny zestaw </NavLink></wired-button>}
                 </div>
@@ -81,8 +107,7 @@ class ZestawObcy extends React.Component{
                     <h2>Nie wiedziałem:{this.state.unknow}</h2>
                 </div>
                 <div className="buttonsNav">
-                    <wired-button><NavLink to="/jangielski/angpol/zestawang"> Wróć do zestawów </NavLink>
-                    </wired-button>
+                    <wired-button><NavLink to="/jangielski/angpol/zestawang"> Wróć do zestawów </NavLink></wired-button>
                     <wired-button><NavLink to="/"> Wróć do strony głównej </NavLink></wired-button>
                 </div>
             </div>

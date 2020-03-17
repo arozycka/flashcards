@@ -5,11 +5,9 @@
 }
 
 body{
-  width: 100%;
   background-color: $mainBackgroundcolor;
 
 }
-
 
 .mainContainer {
   display: flex;
@@ -18,39 +16,45 @@ body{
   flex-direction: column;
   font-family: $mainCounterFont;
   width: 100%;
-
 }
-//.image{
-//  background-image:url("../images/teachme.png");
-//}
+
 
 .mainText{
 text-align: center;
   background-color: $mainTextBackgroundcolor;
-  padding: 50px 250px;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  height: 600px;
+
+
 
   p{
     font-size: 45px;
-    margin-top: 50px;
+    margin-top: 10px;
   }
-  h3,h2 {
+  h3 {
     line-height: 50px;
     font-size: 25px;
   }
   h1{
     line-height: 50px;
     font-size: 45px;
+    margin-bottom: 20px;
   }
 }
+
 
 .checklanguage{
   font-size:70px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
 .wiredCardContainer{
   display: flex;
   flex-direction: row;
+  margin-bottom: 200px;
 }
 
  .mainWiredCard{
@@ -65,13 +69,27 @@ text-align: center;
   color:black;
   font-family: $mainCounterFont;
   font-size: 30px;
+   position: relative;
 }
 
 .image {
   background-image: url("/img/teachme.png");
   width: 100%;
-  height: 500px;
+  height: 680px;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: white;
+
+  h1{
+    text-align: center;
+    margin-top: 30px;
+  }
 }
 
+.icons{
+  margin-left: 700px;
+  margin-top: 500px;
+}
+.icons2{
+  margin-top: 100px;
+}
