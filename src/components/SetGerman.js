@@ -22,6 +22,10 @@ class SetGerman extends React.Component{
     }
 
     onHandleClickNextWord = () => {
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsGerman[number - 1][this.state.index];
+        word.skip=false;
         if (this.state.index + 1 === this.state.wordsGerman[this.props.match.params.number - 1].length) {
             return;
         }
@@ -35,6 +39,10 @@ class SetGerman extends React.Component{
     };
 
     onHandleClickPreviousWord = () => {
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsGerman[number - 1][this.state.index];
+        word.skip=false;
         if (this.state.index  === 0) {
             return;
         }
@@ -63,7 +71,7 @@ class SetGerman extends React.Component{
             return;
         }
         newState.showAnswer = true;
-        if(this.state.value===this.state.wordsGerman[number - 1][this.state.index].german){
+        if(this.state.value===this.state.wordsGerman[number - 1][this.state.index].german || this.state.value===this.state.wordsGerman[number - 1][this.state.index].german + " "){
             newState.correct = this.state.correct + 1;
             newState.backgroundColor="green";
             word.skip=true;

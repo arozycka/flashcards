@@ -14,7 +14,7 @@ class Fiszka extends React.Component{
             <div>
                 <div>
                     <wired-card class="mainWiredCard">
-                        {this.props.showSpeakerIcon && <FontAwesomeIcon className="icons speaker-icon" icon={faVolumeUp} onClick={this.speak}/>}
+                        {this.props.showSpeakerIcon && <FontAwesomeIcon className="speaker-icon" icon={faVolumeUp} onClick={this.speak}/>}
                         <p>{this.props.word}</p>
                     </wired-card>
                 </div>

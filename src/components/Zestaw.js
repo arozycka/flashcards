@@ -22,6 +22,10 @@ class Zestaw extends React.Component {
     }
 
     onHandleClickNextWord = () => {
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsEnglish[number - 1][this.state.index];
+        word.skip=false;
         if (this.state.index + 1 === this.state.wordsEnglish[this.props.match.params.number - 1].length) {
             return;
         }
@@ -35,6 +39,10 @@ class Zestaw extends React.Component {
     };
 
     onHandleClickPreviousWord = () => {
+        const newState = {...this.state};
+        const {match:{params:{number}}}=this.props;
+        const word = newState.wordsEnglish[number - 1][this.state.index];
+        word.skip=false;
         if (this.state.index === 0) {
             return;
         }
@@ -45,6 +53,7 @@ class Zestaw extends React.Component {
             backgroundColor: "#cdeae7",
             value:""
         });
+
     };
 
     showAnswer = () => {
@@ -65,7 +74,7 @@ class Zestaw extends React.Component {
         }
 
         newState.showAnswer = true;
-        if(this.state.value===this.state.wordsEnglish[number - 1][this.state.index].english){
+        if(this.state.value===this.state.wordsEnglish[number - 1][this.state.index].english ||this.state.value===this.state.wordsEnglish[number - 1][this.state.index].english +" "){
             newState.correct = this.state.correct + 1;
             newState.backgroundColor="green";
             word.skip=true;
@@ -83,7 +92,7 @@ class Zestaw extends React.Component {
         })
     };
 
-    speakEnglish=()=>{
+    speakEnglish = () => {
         const {match: {params: {number}}} = this.props;
         const word = this.state.wordsEnglish[number - 1][this.state.index].english;
         const voices = window.speechSynthesis.getVoices();

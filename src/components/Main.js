@@ -22,7 +22,7 @@ class Main extends React.Component{
                     <h1>Hej!</h1>
                     <h3>Ta Aplikacja pomoże Ci w łatwy sposób przyswoić słownictwo !</h3>
                     <h3> Głównie przeznaczona jest do nauki słówek języka angielskiego i niemieckiego !</h3>
-                    <h3> Aplikacja umożliwia ćwiczenie pisania, zapamiętywania i kojarzenia !</h3>
+                    <h3> Aplikacja umożliwia ćwiczenie pisania, zapamiętywania,kojarzenia i osłuchiwania się !</h3>
                     <h3>Nie ma na co tracić czasu! Zatem zaczynamy !</h3>
                     <p> Let’s go ! </p>
                     <FontAwesomeIcon className="icons2" icon={faLongArrowAltDown} size="7x"/>

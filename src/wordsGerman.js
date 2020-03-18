@@ -8,7 +8,7 @@ const wordsGerman = [
         {id: 4, german: "arbeiten", polish: "pracować", correct: null},
         {id: 5, german: "aussehen", polish: "wyglądać", correct: null},
         {id: 6, german: "bedeuten", polish: "znaczyć", correct: null},
-        {id: 7, german: "beginnen sb of ", polish: "rozpoczynać", correct: null},
+        {id: 7, german: "beginnen", polish: "rozpoczynać", correct: null},
         {id: 8, german: "bekommen", polish: "otrzymywać", correct: null},
         {id: 9, german: "bestehen", polish: "zdać", correct: null},
         {id: 10, german: "betreffen", polish: "dotyczyć", correct: null},
