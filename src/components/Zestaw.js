@@ -128,10 +128,10 @@ class Zestaw extends React.Component {
                     {this.state.index === 9 &&
                     <wired-button class="nextSetButton"><NavLink to="/jangielski/polang/zestaw"> Następny zestaw </NavLink></wired-button>}
                 </div>
-                <div className="inputButton">
+                <div className="inputButton" id="englishCheck">
                 <input className="input" type="text" value={this.state.value} id="myInputAng"
                        onChange={this.handlerChange} style={style}/>
-                <wired-button onClick={this.showAnswer}>Sprawdź</wired-button>
+                <wired-button id="checkButton2"onClick={this.showAnswer}>Sprawdź</wired-button>
                 </div>
                 <Counter correct={this.state.correct} incorrect={this.state.incorrect}/>
                 <div className="buttonsNav">

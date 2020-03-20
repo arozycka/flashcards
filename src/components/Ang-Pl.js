@@ -4,6 +4,12 @@ import { WiredToggle,WiredButton,WiredCard  } from "wired-toggle"
 
 class AngPol extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state={
+            setList:[1,2,3,4,5,6,7,8,9,10]
+        }
+    }
 
     render() {
         return(
@@ -16,56 +22,13 @@ class AngPol extends React.Component{
                     </div>
                 </wired-card>
                 <div className="sets">
-                    <wired-card class="setWiredCard">
-                        <div> <NavLink  to="/jangielski/angpol/zestawang/1">zestaw 1</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/2">zestaw 2</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/3">zestaw 3</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/4">zestaw 4</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/5">zestaw 5</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/6">zestaw 6</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/7">zestaw 7</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/8">zestaw 8</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/9">zestaw 9</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
-                    <wired-card class="setWiredCard">
-                        <div><NavLink to="/jangielski/angpol/zestawang/10">zestaw 10</NavLink>
-                            <wired-toggle></wired-toggle>
-                        </div>
-                    </wired-card>
+                    {
+                        this.state.setList.map(el=> <wired-card class="setWiredCard">
+                            <div><NavLink to={"/jangielski/angpol/zestawang/" + el}>ZESTAW {el}</NavLink>
+                                <wired-toggle id={el}></wired-toggle>
+                            </div>
+                        </wired-card>)
+                    }
                 </div>
                 <div className="setButton">
                     <wired-button class="setbuttonfirst"><NavLink  to="/">Wróć do strony głównej</NavLink></wired-button>
