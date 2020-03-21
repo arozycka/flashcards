@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/flashcards/static/css/main.ed9c27fb.chunk.css",
+    "main.css": "/flashcards/static/css/main.f5cd9ef3.chunk.css",
     "main.js": "/flashcards/static/js/main.20982ed4.chunk.js",
     "main.js.map": "/flashcards/static/js/main.20982ed4.chunk.js.map",
     "runtime-main.js": "/flashcards/static/js/runtime-main.8656b6d5.js",
@@ -8,16 +8,16 @@
     "static/js/2.f06260a6.chunk.js": "/flashcards/static/js/2.f06260a6.chunk.js",
     "static/js/2.f06260a6.chunk.js.map": "/flashcards/static/js/2.f06260a6.chunk.js.map",
     "index.html": "/flashcards/index.html",
-    "precache-manifest.ee8498dee8b3256a7012b5aba1eab2c6.js": "/flashcards/precache-manifest.ee8498dee8b3256a7012b5aba1eab2c6.js",
+    "precache-manifest.61543f26126f0ef8491502666fbf015f.js": "/flashcards/precache-manifest.61543f26126f0ef8491502666fbf015f.js",
     "service-worker.js": "/flashcards/service-worker.js",
-    "static/css/main.ed9c27fb.chunk.css.map": "/flashcards/static/css/main.ed9c27fb.chunk.css.map",
+    "static/css/main.f5cd9ef3.chunk.css.map": "/flashcards/static/css/main.f5cd9ef3.chunk.css.map",
     "static/js/2.f06260a6.chunk.js.LICENSE.txt": "/flashcards/static/js/2.f06260a6.chunk.js.LICENSE.txt",
     "static/media/FiszkiApp.scss": "/flashcards/static/media/teachme.15d8ba23.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8656b6d5.js",
     "static/js/2.f06260a6.chunk.js",
-    "static/css/main.ed9c27fb.chunk.css",
+    "static/css/main.f5cd9ef3.chunk.css",
     "static/js/main.20982ed4.chunk.js"
   ]
 }
